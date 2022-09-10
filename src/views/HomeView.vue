@@ -1,7 +1,6 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <HelloWorld msg="Here should be the particles background"/>
   </div>
 </template>
 
@@ -13,6 +12,10 @@ export default {
   name: 'HomeView',
   components: {
     HelloWorld
-  }
-}
+  },
+  computed:{
+    theme(){
+      return (this.$vuetify.theme.dark) ? 'dark' : 'light'
+    }
+},}
 </script>
