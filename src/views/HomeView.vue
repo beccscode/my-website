@@ -13,9 +13,5 @@ export default {
   components: {
     HelloWorld
   },
-  computed:{
-    theme(){
-      return (this.$vuetify.theme.dark) ? 'dark' : 'light'
-    }
-},}
+  }
 </script>

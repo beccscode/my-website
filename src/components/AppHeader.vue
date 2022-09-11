@@ -1,15 +1,26 @@
 <template>
-    <header>
-      <img alt="Vue logo" src="../assets/logo.svg" height="50">
-      <nav>
+  <header>
+    <IconLogo style='width:50px;'/>
+    <nav>
       <ul>
         <li><router-link to="/">Home</router-link></li>
         <li><router-link to="/about">About</router-link></li>
         <li><router-link to="/about">Projects</router-link></li>
       </ul>
     </nav>
-    </header>
-  </template>
+  </header>
+</template>
+
+<script>
+
+import IconLogo from '@/components/graphics/IconLogo.vue';
+export default {
+  name:'AppHeader',
+  components: {
+    IconLogo
+ }
+}
+</script>
 
 <style lang="scss">
      header {
