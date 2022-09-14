@@ -1,4 +1,5 @@
 @import 'modules/page.scss';
+@import 'modules/header.scss';
 
 /**
  * This injects Tailwind's base styles, which is a combination of
