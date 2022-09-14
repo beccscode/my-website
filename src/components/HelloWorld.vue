@@ -19,7 +19,7 @@ export default {
 <style scoped lang="scss">
 
 #particles {
-  height: 100vh;
+  //height: 100v;
   width: 100vw;
 }
 
