@@ -1,951 +1,954 @@
-/*
-
-Tailwind - The Utility-First CSS Framework
-
-A project by Adam Wathan (@adamwathan), Jonathan Reinink (@reinink),
-David Hemphill (@davidhemphill) and Steve Schoger (@steveschoger).
-
-Welcome to the Tailwind config file. This is where you can customize
-Tailwind specifically for your project. Don't be intimidated by the
-length of this file. It's really just a big JavaScript object and
-we've done our very best to explain each section.
-
-View the full documentation at https://tailwindcss.com.
-
-
-|-------------------------------------------------------------------------------
-| The default config
-|-------------------------------------------------------------------------------
-|
-| This variable contains the default Tailwind config. You don't have
-| to use it, but it can sometimes be helpful to have available. For
-| example, you may choose to merge your custom configuration
-| values with some of the Tailwind defaults.
-|
-*/
-
-// let defaultConfig = require('tailwindcss/defaultConfig')()
-
-
-/*
-|-------------------------------------------------------------------------------
-| Colors                                    https://tailwindcss.com/docs/colors
-|-------------------------------------------------------------------------------
-|
-| Here you can specify the colors used in your project. To get you started,
-| we've provided a generous palette of great looking colors that are perfect
-| for prototyping, but don't hesitate to change them for your project. You
-| own these colors, nothing will break if you change everything about them.
-|
-| We've used literal color names ("red", "blue", etc.) for the default
-| palette, but if you'd rather use functional names like "primary" and
-| "secondary", or even a numeric scale like "100" and "200", go for it.
-|
-*/
-
-let colors = {
-  'transparent': 'transparent',
-
-  'black': '#22292f',
-  'grey-darkest': '#3d4852',
-  'grey-darker': '#606f7b',
-  'grey-dark': '#8795a1',
-  'grey': '#b8c2cc',
-  'grey-light': '#dae1e7',
-  'grey-lighter': '#f1f5f8',
-  'grey-lightest': '#f8fafc',
-  'white': '#ffffff',
-
-  'red-darkest': '#3b0d0c',
-  'red-darker': '#621b18',
-  'red-dark': '#cc1f1a',
-  'red': '#e3342f',
-  'red-light': '#ef5753',
-  'red-lighter': '#f9acaa',
-  'red-lightest': '#fcebea',
-
-  'orange-darkest': '#462a16',
-  'orange-darker': '#613b1f',
-  'orange-dark': '#de751f',
-  'orange': '#f6993f',
-  'orange-light': '#faad63',
-  'orange-lighter': '#fcd9b6',
-  'orange-lightest': '#fff5eb',
-
-  'yellow-darkest': '#453411',
-  'yellow-darker': '#684f1d',
-  'yellow-dark': '#f2d024',
-  'yellow': '#ffed4a',
-  'yellow-light': '#fff382',
-  'yellow-lighter': '#fff9c2',
-  'yellow-lightest': '#fcfbeb',
-
-  'green-darkest': '#0f2f21',
-  'green-darker': '#1a4731',
-  'green-dark': '#1f9d55',
-  'green': '#38c172',
-  'green-light': '#51d88a',
-  'green-lighter': '#a2f5bf',
-  'green-lightest': '#e3fcec',
-
-  'teal-darkest': '#0d3331',
-  'teal-darker': '#20504f',
-  'teal-dark': '#38a89d',
-  'teal': '#4dc0b5',
-  'teal-light': '#64d5ca',
-  'teal-lighter': '#a0f0ed',
-  'teal-lightest': '#e8fffe',
-
-  'blue-darkest': '#12283a',
-  'blue-darker': '#1c3d5a',
-  'blue-dark': '#2779bd',
-  'blue': '#3490dc',
-  'blue-light': '#6cb2eb',
-  'blue-lighter': '#bcdefa',
-  'blue-lightest': '#eff8ff',
-
-  'indigo-darkest': '#191e38',
-  'indigo-darker': '#2f365f',
-  'indigo-dark': '#5661b3',
-  'indigo': '#6574cd',
-  'indigo-light': '#7886d7',
-  'indigo-lighter': '#b2b7ff',
-  'indigo-lightest': '#e6e8ff',
-
-  'purple-darkest': '#21183c',
-  'purple-darker': '#382b5f',
-  'purple-dark': '#794acf',
-  'purple': '#9561e2',
-  'purple-light': '#a779e9',
-  'purple-lighter': '#d6bbfc',
-  'purple-lightest': '#f3ebff',
-
-  'pink-darkest': '#451225',
-  'pink-darker': '#6f213f',
-  'pink-dark': '#eb5286',
-  'pink': '#f66d9b',
-  'pink-light': '#fa7ea8',
-  'pink-lighter': '#ffbbca',
-  'pink-lightest': '#ffebef',
-}
-
+/** @type {import('tailwindcss').Config} */
 module.exports = {
-
-  /*
-  |-----------------------------------------------------------------------------
-  | Colors                                  https://tailwindcss.com/docs/colors
-  |-----------------------------------------------------------------------------
-  |
-  | The color palette defined above is also assigned to the "colors" key of
-  | your Tailwind config. This makes it easy to access them in your CSS
-  | using Tailwind's config helper. For example:
-  |
-  | .error { color: config('colors.red') }
-  |
-  */
-
-  colors: colors,
-
-
-  /*
-  |-----------------------------------------------------------------------------
-  | Screens                      https://tailwindcss.com/docs/responsive-design
-  |-----------------------------------------------------------------------------
-  |
-  | Screens in Tailwind are translated to CSS media queries. They define the
-  | responsive breakpoints for your project. By default Tailwind takes a
-  | "mobile first" approach, where each screen size represents a minimum
-  | viewport width. Feel free to have as few or as many screens as you
-  | want, naming them in whatever way you'd prefer for your project.
-  |
-  | Tailwind also allows for more complex screen definitions, which can be
-  | useful in certain situations. Be sure to see the full responsive
-  | documentation for a complete list of options.
-  |
-  | Class name: .{screen}:{utility}
-  |
-  */
-
-  screens: {
-    'sm': '576px',
-    'md': '768px',
-    'lg': '992px',
-    'xl': '1200px',
-  },
-
-
-  /*
-  |-----------------------------------------------------------------------------
-  | Fonts                                    https://tailwindcss.com/docs/fonts
-  |-----------------------------------------------------------------------------
-  |
-  | Here is where you define your project's font stack, or font families.
-  | Keep in mind that Tailwind doesn't actually load any fonts for you.
-  | If you're using custom fonts you'll need to import them prior to
-  | defining them here.
-  |
-  | By default we provide a native font stack that works remarkably well on
-  | any device or OS you're using, since it just uses the default fonts
-  | provided by the platform.
-  |
-  | Class name: .font-{name}
-  |
-  */
-
-  fonts: {
-    'sans': [
-      'system-ui',
-      'BlinkMacSystemFont',
-      '-apple-system',
-      'Segoe UI',
-      'Roboto',
-      'Oxygen',
-      'Ubuntu',
-      'Cantarell',
-      'Fira Sans',
-      'Droid Sans',
-      'Helvetica Neue',
-      'sans-serif',
-    ],
-    'serif': [
-      'Constantia',
-      'Lucida Bright',
-      'Lucidabright',
-      'Lucida Serif',
-      'Lucida',
-      'DejaVu Serif',
-      'Bitstream Vera Serif',
-      'Liberation Serif',
-      'Georgia',
-      'serif',
-    ],
-    'mono': [
-      'Menlo',
-      'Monaco',
-      'Consolas',
-      'Liberation Mono',
-      'Courier New',
-      'monospace',
-    ]
-  },
-
-
-  /*
-  |-----------------------------------------------------------------------------
-  | Text sizes                         https://tailwindcss.com/docs/text-sizing
-  |-----------------------------------------------------------------------------
-  |
-  | Here is where you define your text sizes. Name these in whatever way
-  | makes the most sense to you. We use size names by default, but
-  | you're welcome to use a numeric scale or even something else
-  | entirely.
-  |
-  | By default Tailwind uses the "rem" unit type for most measurements.
-  | This allows you to set a root font size which all other sizes are
-  | then based on. That said, you are free to use whatever units you
-  | prefer, be it rems, ems, pixels or other.
-  |
-  | Class name: .text-{size}
-  |
-  */
-
-  textSizes: {
-    'xs': '.75rem',     // 12px
-    'sm': '.875rem',    // 14px
-    'base': '1rem',     // 16px
-    'lg': '1.125rem',   // 18px
-    'xl': '1.25rem',    // 20px
-    '2xl': '1.5rem',    // 24px
-    '3xl': '1.875rem',  // 30px
-    '4xl': '2.25rem',   // 36px
-    '5xl': '3rem',      // 48px
-  },
-
-
-  /*
-  |-----------------------------------------------------------------------------
-  | Font weights                       https://tailwindcss.com/docs/font-weight
-  |-----------------------------------------------------------------------------
-  |
-  | Here is where you define your font weights. We've provided a list of
-  | common font weight names with their respective numeric scale values
-  | to get you started. It's unlikely that your project will require
-  | all of these, so we recommend removing those you don't need.
-  |
-  | Class name: .font-{weight}
-  |
-  */
-
-  fontWeights: {
-    'hairline': 100,
-    'thin': 200,
-    'light': 300,
-    'normal': 400,
-    'medium': 500,
-    'semibold': 600,
-    'bold': 700,
-    'extrabold': 800,
-    'black': 900,
-  },
-
-
-  /*
-  |-----------------------------------------------------------------------------
-  | Leading (line height)              https://tailwindcss.com/docs/line-height
-  |-----------------------------------------------------------------------------
-  |
-  | Here is where you define your line height values, or as we call
-  | them in Tailwind, leadings.
-  |
-  | Class name: .leading-{size}
-  |
-  */
-
-  leading: {
-    'none': 1,
-    'tight': 1.25,
-    'normal': 1.5,
-    'loose': 2,
-  },
-
-
-  /*
-  |-----------------------------------------------------------------------------
-  | Tracking (letter spacing)       https://tailwindcss.com/docs/letter-spacing
-  |-----------------------------------------------------------------------------
-  |
-  | Here is where you define your letter spacing values, or as we call
-  | them in Tailwind, tracking.
-  |
-  | Class name: .tracking-{size}
-  |
-  */
-
-  tracking: {
-    'tight': '-0.05em',
-    'normal': '0',
-    'wide': '0.05em',
-  },
-
-
-  /*
-  |-----------------------------------------------------------------------------
-  | Text colors                         https://tailwindcss.com/docs/text-color
-  |-----------------------------------------------------------------------------
-  |
-  | Here is where you define your text colors. By default these use the
-  | color palette we defined above, however you're welcome to set these
-  | independently if that makes sense for your project.
-  |
-  | Class name: .text-{color}
-  |
-  */
-
-  textColors: colors,
-
-
-  /*
-  |-----------------------------------------------------------------------------
-  | Background colors             https://tailwindcss.com/docs/background-color
-  |-----------------------------------------------------------------------------
-  |
-  | Here is where you define your background colors. By default these use
-  | the color palette we defined above, however you're welcome to set
-  | these independently if that makes sense for your project.
-  |
-  | Class name: .bg-{color}
-  |
-  */
-
-  backgroundColors: colors,
-
-
-  /*
-  |-----------------------------------------------------------------------------
-  | Background sizes               https://tailwindcss.com/docs/background-size
-  |-----------------------------------------------------------------------------
-  |
-  | Here is where you define your background sizes. We provide some common
-  | values that are useful in most projects, but feel free to add other sizes
-  | that are specific to your project here as well.
-  |
-  | Class name: .bg-{size}
-  |
-  */
-
-  backgroundSize: {
-    'auto': 'auto',
-    'cover': 'cover',
-    'contain': 'contain',
-  },
-
-
-  /*
-  |-----------------------------------------------------------------------------
-  | Border widths                     https://tailwindcss.com/docs/border-width
-  |-----------------------------------------------------------------------------
-  |
-  | Here is where you define your border widths. Take note that border
-  | widths require a special "default" value set as well. This is the
-  | width that will be used when you do not specify a border width.
-  |
-  | Class name: .border{-side?}{-width?}
-  |
-  */
-
-  borderWidths: {
-    default: '1px',
-    '0': '0',
-    '2': '2px',
-    '4': '4px',
-    '8': '8px',
-  },
-
-
-  /*
-  |-----------------------------------------------------------------------------
-  | Border colors                     https://tailwindcss.com/docs/border-color
-  |-----------------------------------------------------------------------------
-  |
-  | Here is where you define your border colors. By default these use the
-  | color palette we defined above, however you're welcome to set these
-  | independently if that makes sense for your project.
-  |
-  | Take note that border colors require a special "default" value set
-  | as well. This is the color that will be used when you do not
-  | specify a border color.
-  |
-  | Class name: .border-{color}
-  |
-  */
-
-  borderColors: global.Object.assign({ default: colors['grey-light'] }, colors),
-
-
-  /*
-  |-----------------------------------------------------------------------------
-  | Border radius                    https://tailwindcss.com/docs/border-radius
-  |-----------------------------------------------------------------------------
-  |
-  | Here is where you define your border radius values. If a `default` radius
-  | is provided, it will be made available as the non-suffixed `.rounded`
-  | utility.
-  |
-  | If your scale includes a `0` value to reset already rounded corners, it's
-  | a good idea to put it first so other values are able to override it.
-  |
-  | Class name: .rounded{-side?}{-size?}
-  |
-  */
-
-  borderRadius: {
-    'none': '0',
-    'sm': '.125rem',
-    default: '.25rem',
-    'lg': '.5rem',
-    'full': '9999px',
-  },
-
-
-  /*
-  |-----------------------------------------------------------------------------
-  | Width                                    https://tailwindcss.com/docs/width
-  |-----------------------------------------------------------------------------
-  |
-  | Here is where you define your width utility sizes. These can be
-  | percentage based, pixels, rems, or any other units. By default
-  | we provide a sensible rem based numeric scale, a percentage
-  | based fraction scale, plus some other common use-cases. You
-  | can, of course, modify these values as needed.
-  |
-  |
-  | It's also worth mentioning that Tailwind automatically escapes
-  | invalid CSS class name characters, which allows you to have
-  | awesome classes like .w-2/3.
-  |
-  | Class name: .w-{size}
-  |
-  */
-
-  width: {
-    'auto': 'auto',
-    'px': '1px',
-    '1': '0.25rem',
-    '2': '0.5rem',
-    '3': '0.75rem',
-    '4': '1rem',
-    '5': '1.25rem',
-    '6': '1.5rem',
-    '8': '2rem',
-    '10': '2.5rem',
-    '12': '3rem',
-    '16': '4rem',
-    '24': '6rem',
-    '32': '8rem',
-    '48': '12rem',
-    '64': '16rem',
-    '1/2': '50%',
-    '1/3': '33.33333%',
-    '2/3': '66.66667%',
-    '1/4': '25%',
-    '3/4': '75%',
-    '1/5': '20%',
-    '2/5': '40%',
-    '3/5': '60%',
-    '4/5': '80%',
-    '1/6': '16.66667%',
-    '5/6': '83.33333%',
-    'full': '100%',
-    'screen': '100vw'
-  },
-
-
-  /*
-  |-----------------------------------------------------------------------------
-  | Height                                  https://tailwindcss.com/docs/height
-  |-----------------------------------------------------------------------------
-  |
-  | Here is where you define your height utility sizes. These can be
-  | percentage based, pixels, rems, or any other units. By default
-  | we provide a sensible rem based numeric scale plus some other
-  | common use-cases. You can, of course, modify these values as
-  | needed.
-  |
-  | Class name: .h-{size}
-  |
-  */
-
-  height: {
-    'auto': 'auto',
-    'px': '1px',
-    '1': '0.25rem',
-    '2': '0.5rem',
-    '3': '0.75rem',
-    '4': '1rem',
-    '5': '1.25rem',
-    '6': '1.5rem',
-    '8': '2rem',
-    '10': '2.5rem',
-    '12': '3rem',
-    '16': '4rem',
-    '24': '6rem',
-    '32': '8rem',
-    '48': '12rem',
-    '64': '16rem',
-    'full': '100%',
-    'screen': '100vh'
-  },
-
-
-  /*
-  |-----------------------------------------------------------------------------
-  | Minimum width                        https://tailwindcss.com/docs/min-width
-  |-----------------------------------------------------------------------------
-  |
-  | Here is where you define your minimum width utility sizes. These can
-  | be percentage based, pixels, rems, or any other units. We provide a
-  | couple common use-cases by default. You can, of course, modify
-  | these values as needed.
-  |
-  | Class name: .min-w-{size}
-  |
-  */
-
-  minWidth: {
-    '0': '0',
-    'full': '100%',
-  },
-
-
-  /*
-  |-----------------------------------------------------------------------------
-  | Minimum height                      https://tailwindcss.com/docs/min-height
-  |-----------------------------------------------------------------------------
-  |
-  | Here is where you define your minimum height utility sizes. These can
-  | be percentage based, pixels, rems, or any other units. We provide a
-  | few common use-cases by default. You can, of course, modify these
-  | values as needed.
-  |
-  | Class name: .min-h-{size}
-  |
-  */
-
-  minHeight: {
-    '0': '0',
-    'full': '100%',
-    'screen': '100vh'
-  },
-
-
-  /*
-  |-----------------------------------------------------------------------------
-  | Maximum width                        https://tailwindcss.com/docs/max-width
-  |-----------------------------------------------------------------------------
-  |
-  | Here is where you define your maximum width utility sizes. These can
-  | be percentage based, pixels, rems, or any other units. By default
-  | we provide a sensible rem based scale and a "full width" size,
-  | which is basically a reset utility. You can, of course,
-  | modify these values as needed.
-  |
-  | Class name: .max-w-{size}
-  |
-  */
-
-  maxWidth: {
-    'xs': '20rem',
-    'sm': '30rem',
-    'md': '40rem',
-    'lg': '50rem',
-    'xl': '60rem',
-    '2xl': '70rem',
-    '3xl': '80rem',
-    '4xl': '90rem',
-    '5xl': '100rem',
-    'full': '100%',
-  },
-
-
-  /*
-  |-----------------------------------------------------------------------------
-  | Maximum height                      https://tailwindcss.com/docs/max-height
-  |-----------------------------------------------------------------------------
-  |
-  | Here is where you define your maximum height utility sizes. These can
-  | be percentage based, pixels, rems, or any other units. We provide a
-  | couple common use-cases by default. You can, of course, modify
-  | these values as needed.
-  |
-  | Class name: .max-h-{size}
-  |
-  */
-
-  maxHeight: {
-    'full': '100%',
-    'screen': '100vh',
-  },
-
-
-  /*
-  |-----------------------------------------------------------------------------
-  | Padding                                https://tailwindcss.com/docs/padding
-  |-----------------------------------------------------------------------------
-  |
-  | Here is where you define your padding utility sizes. These can be
-  | percentage based, pixels, rems, or any other units. By default we
-  | provide a sensible rem based numeric scale plus a couple other
-  | common use-cases like "1px". You can, of course, modify these
-  | values as needed.
-  |
-  | Class name: .p{side?}-{size}
-  |
-  */
-
-  padding: {
-    'px': '1px',
-    '0': '0',
-    '1': '0.25rem',
-    '2': '0.5rem',
-    '3': '0.75rem',
-    '4': '1rem',
-    '5': '1.25rem',
-    '6': '1.5rem',
-    '8': '2rem',
-    '10': '2.5rem',
-    '12': '3rem',
-    '16': '4rem',
-    '20': '5rem',
-    '24': '6rem',
-    '32': '8rem',
-  },
-
-
-  /*
-  |-----------------------------------------------------------------------------
-  | Margin                                  https://tailwindcss.com/docs/margin
-  |-----------------------------------------------------------------------------
-  |
-  | Here is where you define your margin utility sizes. These can be
-  | percentage based, pixels, rems, or any other units. By default we
-  | provide a sensible rem based numeric scale plus a couple other
-  | common use-cases like "1px". You can, of course, modify these
-  | values as needed.
-  |
-  | Class name: .m{side?}-{size}
-  |
-  */
-
-  margin: {
-    'auto': 'auto',
-    'px': '1px',
-    '0': '0',
-    '1': '0.25rem',
-    '2': '0.5rem',
-    '3': '0.75rem',
-    '4': '1rem',
-    '5': '1.25rem',
-    '6': '1.5rem',
-    '8': '2rem',
-    '10': '2.5rem',
-    '12': '3rem',
-    '16': '4rem',
-    '20': '5rem',
-    '24': '6rem',
-    '32': '8rem',
-  },
-
-
-  /*
-  |-----------------------------------------------------------------------------
-  | Negative margin                https://tailwindcss.com/docs/negative-margin
-  |-----------------------------------------------------------------------------
-  |
-  | Here is where you define your negative margin utility sizes. These can
-  | be percentage based, pixels, rems, or any other units. By default we
-  | provide matching values to the padding scale since these utilities
-  | generally get used together. You can, of course, modify these
-  | values as needed.
-  |
-  | Class name: .-m{side?}-{size}
-  |
-  */
-
-  negativeMargin: {
-    'px': '1px',
-    '0': '0',
-    '1': '0.25rem',
-    '2': '0.5rem',
-    '3': '0.75rem',
-    '4': '1rem',
-    '5': '1.25rem',
-    '6': '1.5rem',
-    '8': '2rem',
-    '10': '2.5rem',
-    '12': '3rem',
-    '16': '4rem',
-    '20': '5rem',
-    '24': '6rem',
-    '32': '8rem',
-  },
-
-
-  /*
-  |-----------------------------------------------------------------------------
-  | Shadows                                https://tailwindcss.com/docs/shadows
-  |-----------------------------------------------------------------------------
-  |
-  | Here is where you define your shadow utilities. As you can see from
-  | the defaults we provide, it's possible to apply multiple shadows
-  | per utility using comma separation.
-  |
-  | If a `default` shadow is provided, it will be made available as the non-
-  | suffixed `.shadow` utility.
-  |
-  | Class name: .shadow-{size?}
-  |
-  */
-
-  shadows: {
-    default: '0 2px 4px 0 rgba(0,0,0,0.10)',
-    'md': '0 4px 8px 0 rgba(0,0,0,0.12), 0 2px 4px 0 rgba(0,0,0,0.08)',
-    'lg': '0 15px 30px 0 rgba(0,0,0,0.11), 0 5px 15px 0 rgba(0,0,0,0.08)',
-    'inner': 'inset 0 2px 4px 0 rgba(0,0,0,0.06)',
-    'outline': '0 0 0 3px rgba(52,144,220,0.5)',
-    'none': 'none',
-  },
-
-
-  /*
-  |-----------------------------------------------------------------------------
-  | Z-index                                https://tailwindcss.com/docs/z-index
-  |-----------------------------------------------------------------------------
-  |
-  | Here is where you define your z-index utility values. By default we
-  | provide a sensible numeric scale. You can, of course, modify these
-  | values as needed.
-  |
-  | Class name: .z-{index}
-  |
-  */
-
-  zIndex: {
-    'auto': 'auto',
-    '0': 0,
-    '10': 10,
-    '20': 20,
-    '30': 30,
-    '40': 40,
-    '50': 50,
-  },
-
-
-  /*
-  |-----------------------------------------------------------------------------
-  | Opacity                                https://tailwindcss.com/docs/opacity
-  |-----------------------------------------------------------------------------
-  |
-  | Here is where you define your opacity utility values. By default we
-  | provide a sensible numeric scale. You can, of course, modify these
-  | values as needed.
-  |
-  | Class name: .opacity-{name}
-  |
-  */
-
-  opacity: {
-    '0': '0',
-    '25': '.25',
-    '50': '.5',
-    '75': '.75',
-    '100': '1',
-  },
-
-
-  /*
-  |-----------------------------------------------------------------------------
-  | SVG fill                                   https://tailwindcss.com/docs/svg
-  |-----------------------------------------------------------------------------
-  |
-  | Here is where you define your SVG fill colors. By default we just provide
-  | `fill-current` which sets the fill to the current text color. This lets you
-  | specify a fill color using existing text color utilities and helps keep the
-  | generated CSS file size down.
-  |
-  | Class name: .fill-{name}
-  |
-  */
-
-  svgFill: {
-    'current': 'currentColor',
-  },
-
-
-  /*
-  |-----------------------------------------------------------------------------
-  | SVG stroke                                 https://tailwindcss.com/docs/svg
-  |-----------------------------------------------------------------------------
-  |
-  | Here is where you define your SVG stroke colors. By default we just provide
-  | `stroke-current` which sets the stroke to the current text color. This lets
-  | you specify a stroke color using existing text color utilities and helps
-  | keep the generated CSS file size down.
-  |
-  | Class name: .stroke-{name}
-  |
-  */
-
-  svgStroke: {
-    'current': 'currentColor',
-  },
-
-
-  /*
-  |-----------------------------------------------------------------------------
-  | Modules                  https://tailwindcss.com/docs/configuration#modules
-  |-----------------------------------------------------------------------------
-  |
-  | Here is where you control which atoms are generated and what variants are
-  | generated for each of those atoms.
-  |
-  | Currently supported variants:
-  |   - responsive
-  |   - hover
-  |   - focus
-  |   - active
-  |   - group-hover
-  |
-  | To disable a module completely, use `false` instead of an array.
-  |
-  */
-
-  modules: {
-    appearance: ['responsive'],
-    backgroundAttachment: ['responsive'],
-    backgroundColors: ['responsive', 'hover', 'focus'],
-    backgroundPosition: ['responsive'],
-    backgroundRepeat: ['responsive'],
-    backgroundSize: ['responsive'],
-    borderCollapse: [],
-    borderColors: ['responsive', 'hover', 'focus'],
-    borderRadius: ['responsive'],
-    borderStyle: ['responsive'],
-    borderWidths: ['responsive'],
-    cursor: ['responsive'],
-    display: ['responsive'],
-    flexbox: ['responsive'],
-    float: ['responsive'],
-    fonts: ['responsive'],
-    fontWeights: ['responsive', 'hover', 'focus'],
-    height: ['responsive'],
-    leading: ['responsive'],
-    lists: ['responsive'],
-    margin: ['responsive'],
-    maxHeight: ['responsive'],
-    maxWidth: ['responsive'],
-    minHeight: ['responsive'],
-    minWidth: ['responsive'],
-    negativeMargin: ['responsive'],
-    opacity: ['responsive'],
-    outline: ['focus'],
-    overflow: ['responsive'],
-    padding: ['responsive'],
-    pointerEvents: ['responsive'],
-    position: ['responsive'],
-    resize: ['responsive'],
-    shadows: ['responsive', 'hover', 'focus'],
-    svgFill: [],
-    svgStroke: [],
-    textAlign: ['responsive'],
-    textColors: ['responsive', 'hover', 'focus'],
-    textSizes: ['responsive'],
-    textStyle: ['responsive', 'hover', 'focus'],
-    tracking: ['responsive'],
-    userSelect: ['responsive'],
-    verticalAlign: ['responsive'],
-    visibility: ['responsive'],
-    whitespace: ['responsive'],
-    width: ['responsive'],
-    zIndex: ['responsive'],
-  },
-
-
-  /*
-  |-----------------------------------------------------------------------------
-  | Plugins                                https://tailwindcss.com/docs/plugins
-  |-----------------------------------------------------------------------------
-  |
-  | Here is where you can register any plugins you'd like to use in your
-  | project. Tailwind's built-in `container` plugin is enabled by default to
-  | give you a Bootstrap-style responsive container component out of the box.
-  |
-  | Be sure to view the complete plugin documentation to learn more about how
-  | the plugin system works.
-  |
-  */
-
-  plugins: [
-    require('tailwindcss/plugins/container')({
-      // center: true,
-      // padding: '1rem',
+  content: ['./public/**/*.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
+  presets: [],
+  darkMode: 'media', // or 'class'
+  theme: {
+    screens: {
+      sm: '640px',
+      md: '768px',
+      lg: '1024px',
+      xl: '1280px',
+      '2xl': '1536px',
+    },
+    colors: ({ colors }) => ({
+      inherit: colors.inherit,
+      current: colors.current,
+      transparent: colors.transparent,
+      black: colors.black,
+      white: colors.white,
+      slate: colors.slate,
+      gray: colors.gray,
+      zinc: colors.zinc,
+      neutral: colors.neutral,
+      stone: colors.stone,
+      red: colors.red,
+      orange: colors.orange,
+      amber: colors.amber,
+      yellow: colors.yellow,
+      lime: colors.lime,
+      green: colors.green,
+      emerald: colors.emerald,
+      teal: colors.teal,
+      cyan: colors.cyan,
+      sky: colors.sky,
+      blue: colors.blue,
+      indigo: colors.indigo,
+      violet: colors.violet,
+      purple: colors.purple,
+      fuchsia: colors.fuchsia,
+      pink: colors.pink,
+      rose: colors.rose,
     }),
-  ],
-
-
-  /*
-  |-----------------------------------------------------------------------------
-  | Advanced Options         https://tailwindcss.com/docs/configuration#options
-  |-----------------------------------------------------------------------------
-  |
-  | Here is where you can tweak advanced configuration options. We recommend
-  | leaving these options alone unless you absolutely need to change them.
-  |
-  */
-
-  options: {
-    prefix: '',
-    important: false,
-    separator: ':',
+    columns: {
+      auto: 'auto',
+      1: '1',
+      2: '2',
+      3: '3',
+      4: '4',
+      5: '5',
+      6: '6',
+      7: '7',
+      8: '8',
+      9: '9',
+      10: '10',
+      11: '11',
+      12: '12',
+      '3xs': '16rem',
+      '2xs': '18rem',
+      xs: '20rem',
+      sm: '24rem',
+      md: '28rem',
+      lg: '32rem',
+      xl: '36rem',
+      '2xl': '42rem',
+      '3xl': '48rem',
+      '4xl': '56rem',
+      '5xl': '64rem',
+      '6xl': '72rem',
+      '7xl': '80rem',
+    },
+    spacing: {
+      px: '1px',
+      0: '0px',
+      0.5: '0.125rem',
+      1: '0.25rem',
+      1.5: '0.375rem',
+      2: '0.5rem',
+      2.5: '0.625rem',
+      3: '0.75rem',
+      3.5: '0.875rem',
+      4: '1rem',
+      5: '1.25rem',
+      6: '1.5rem',
+      7: '1.75rem',
+      8: '2rem',
+      9: '2.25rem',
+      10: '2.5rem',
+      11: '2.75rem',
+      12: '3rem',
+      14: '3.5rem',
+      16: '4rem',
+      20: '5rem',
+      24: '6rem',
+      28: '7rem',
+      32: '8rem',
+      36: '9rem',
+      40: '10rem',
+      44: '11rem',
+      48: '12rem',
+      52: '13rem',
+      56: '14rem',
+      60: '15rem',
+      64: '16rem',
+      72: '18rem',
+      80: '20rem',
+      96: '24rem',
+    },
+    animation: {
+      none: 'none',
+      spin: 'spin 1s linear infinite',
+      ping: 'ping 1s cubic-bezier(0, 0, 0.2, 1) infinite',
+      pulse: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+      bounce: 'bounce 1s infinite',
+    },
+    aspectRatio: {
+      auto: 'auto',
+      square: '1 / 1',
+      video: '16 / 9',
+    },
+    backdropBlur: ({ theme }) => theme('blur'),
+    backdropBrightness: ({ theme }) => theme('brightness'),
+    backdropContrast: ({ theme }) => theme('contrast'),
+    backdropGrayscale: ({ theme }) => theme('grayscale'),
+    backdropHueRotate: ({ theme }) => theme('hueRotate'),
+    backdropInvert: ({ theme }) => theme('invert'),
+    backdropOpacity: ({ theme }) => theme('opacity'),
+    backdropSaturate: ({ theme }) => theme('saturate'),
+    backdropSepia: ({ theme }) => theme('sepia'),
+    backgroundColor: ({ theme }) => theme('colors'),
+    backgroundImage: {
+      none: 'none',
+      'gradient-to-t': 'linear-gradient(to top, var(--tw-gradient-stops))',
+      'gradient-to-tr': 'linear-gradient(to top right, var(--tw-gradient-stops))',
+      'gradient-to-r': 'linear-gradient(to right, var(--tw-gradient-stops))',
+      'gradient-to-br': 'linear-gradient(to bottom right, var(--tw-gradient-stops))',
+      'gradient-to-b': 'linear-gradient(to bottom, var(--tw-gradient-stops))',
+      'gradient-to-bl': 'linear-gradient(to bottom left, var(--tw-gradient-stops))',
+      'gradient-to-l': 'linear-gradient(to left, var(--tw-gradient-stops))',
+      'gradient-to-tl': 'linear-gradient(to top left, var(--tw-gradient-stops))',
+    },
+    backgroundOpacity: ({ theme }) => theme('opacity'),
+    backgroundPosition: {
+      bottom: 'bottom',
+      center: 'center',
+      left: 'left',
+      'left-bottom': 'left bottom',
+      'left-top': 'left top',
+      right: 'right',
+      'right-bottom': 'right bottom',
+      'right-top': 'right top',
+      top: 'top',
+    },
+    backgroundSize: {
+      auto: 'auto',
+      cover: 'cover',
+      contain: 'contain',
+    },
+    blur: {
+      0: '0',
+      none: '0',
+      sm: '4px',
+      DEFAULT: '8px',
+      md: '12px',
+      lg: '16px',
+      xl: '24px',
+      '2xl': '40px',
+      '3xl': '64px',
+    },
+    brightness: {
+      0: '0',
+      50: '.5',
+      75: '.75',
+      90: '.9',
+      95: '.95',
+      100: '1',
+      105: '1.05',
+      110: '1.1',
+      125: '1.25',
+      150: '1.5',
+      200: '2',
+    },
+    borderColor: ({ theme }) => ({
+      ...theme('colors'),
+      DEFAULT: theme('colors.gray.200', 'currentColor'),
+    }),
+    borderOpacity: ({ theme }) => theme('opacity'),
+    borderRadius: {
+      none: '0px',
+      sm: '0.125rem',
+      DEFAULT: '0.25rem',
+      md: '0.375rem',
+      lg: '0.5rem',
+      xl: '0.75rem',
+      '2xl': '1rem',
+      '3xl': '1.5rem',
+      full: '9999px',
+    },
+    borderSpacing: ({ theme }) => ({
+      ...theme('spacing'),
+    }),
+    borderWidth: {
+      DEFAULT: '1px',
+      0: '0px',
+      2: '2px',
+      4: '4px',
+      8: '8px',
+    },
+    boxShadow: {
+      sm: '0 1px 2px 0 rgb(0 0 0 / 0.05)',
+      DEFAULT: '0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)',
+      md: '0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)',
+      lg: '0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)',
+      xl: '0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)',
+      '2xl': '0 25px 50px -12px rgb(0 0 0 / 0.25)',
+      inner: 'inset 0 2px 4px 0 rgb(0 0 0 / 0.05)',
+      none: 'none',
+    },
+    boxShadowColor: ({ theme }) => theme('colors'),
+    caretColor: ({ theme }) => theme('colors'),
+    accentColor: ({ theme }) => ({
+      ...theme('colors'),
+      auto: 'auto',
+    }),
+    contrast: {
+      0: '0',
+      50: '.5',
+      75: '.75',
+      100: '1',
+      125: '1.25',
+      150: '1.5',
+      200: '2',
+    },
+    container: {},
+    content: {
+      none: 'none',
+    },
+    cursor: {
+      auto: 'auto',
+      default: 'default',
+      pointer: 'pointer',
+      wait: 'wait',
+      text: 'text',
+      move: 'move',
+      help: 'help',
+      'not-allowed': 'not-allowed',
+      none: 'none',
+      'context-menu': 'context-menu',
+      progress: 'progress',
+      cell: 'cell',
+      crosshair: 'crosshair',
+      'vertical-text': 'vertical-text',
+      alias: 'alias',
+      copy: 'copy',
+      'no-drop': 'no-drop',
+      grab: 'grab',
+      grabbing: 'grabbing',
+      'all-scroll': 'all-scroll',
+      'col-resize': 'col-resize',
+      'row-resize': 'row-resize',
+      'n-resize': 'n-resize',
+      'e-resize': 'e-resize',
+      's-resize': 's-resize',
+      'w-resize': 'w-resize',
+      'ne-resize': 'ne-resize',
+      'nw-resize': 'nw-resize',
+      'se-resize': 'se-resize',
+      'sw-resize': 'sw-resize',
+      'ew-resize': 'ew-resize',
+      'ns-resize': 'ns-resize',
+      'nesw-resize': 'nesw-resize',
+      'nwse-resize': 'nwse-resize',
+      'zoom-in': 'zoom-in',
+      'zoom-out': 'zoom-out',
+    },
+    divideColor: ({ theme }) => theme('borderColor'),
+    divideOpacity: ({ theme }) => theme('borderOpacity'),
+    divideWidth: ({ theme }) => theme('borderWidth'),
+    dropShadow: {
+      sm: '0 1px 1px rgb(0 0 0 / 0.05)',
+      DEFAULT: ['0 1px 2px rgb(0 0 0 / 0.1)', '0 1px 1px rgb(0 0 0 / 0.06)'],
+      md: ['0 4px 3px rgb(0 0 0 / 0.07)', '0 2px 2px rgb(0 0 0 / 0.06)'],
+      lg: ['0 10px 8px rgb(0 0 0 / 0.04)', '0 4px 3px rgb(0 0 0 / 0.1)'],
+      xl: ['0 20px 13px rgb(0 0 0 / 0.03)', '0 8px 5px rgb(0 0 0 / 0.08)'],
+      '2xl': '0 25px 25px rgb(0 0 0 / 0.15)',
+      none: '0 0 #0000',
+    },
+    fill: ({ theme }) => theme('colors'),
+    grayscale: {
+      0: '0',
+      DEFAULT: '100%',
+    },
+    hueRotate: {
+      0: '0deg',
+      15: '15deg',
+      30: '30deg',
+      60: '60deg',
+      90: '90deg',
+      180: '180deg',
+    },
+    invert: {
+      0: '0',
+      DEFAULT: '100%',
+    },
+    flex: {
+      1: '1 1 0%',
+      auto: '1 1 auto',
+      initial: '0 1 auto',
+      none: 'none',
+    },
+    flexBasis: ({ theme }) => ({
+      auto: 'auto',
+      ...theme('spacing'),
+      '1/2': '50%',
+      '1/3': '33.333333%',
+      '2/3': '66.666667%',
+      '1/4': '25%',
+      '2/4': '50%',
+      '3/4': '75%',
+      '1/5': '20%',
+      '2/5': '40%',
+      '3/5': '60%',
+      '4/5': '80%',
+      '1/6': '16.666667%',
+      '2/6': '33.333333%',
+      '3/6': '50%',
+      '4/6': '66.666667%',
+      '5/6': '83.333333%',
+      '1/12': '8.333333%',
+      '2/12': '16.666667%',
+      '3/12': '25%',
+      '4/12': '33.333333%',
+      '5/12': '41.666667%',
+      '6/12': '50%',
+      '7/12': '58.333333%',
+      '8/12': '66.666667%',
+      '9/12': '75%',
+      '10/12': '83.333333%',
+      '11/12': '91.666667%',
+      full: '100%',
+    }),
+    flexGrow: {
+      0: '0',
+      DEFAULT: '1',
+    },
+    flexShrink: {
+      0: '0',
+      DEFAULT: '1',
+    },
+    fontFamily: {
+      sans: [
+        'ui-sans-serif',
+        'system-ui',
+        '-apple-system',
+        'BlinkMacSystemFont',
+        '"Segoe UI"',
+        'Roboto',
+        '"Helvetica Neue"',
+        'Arial',
+        '"Noto Sans"',
+        'sans-serif',
+        '"Apple Color Emoji"',
+        '"Segoe UI Emoji"',
+        '"Segoe UI Symbol"',
+        '"Noto Color Emoji"',
+      ],
+      serif: ['ui-serif', 'Georgia', 'Cambria', '"Times New Roman"', 'Times', 'serif'],
+      mono: [
+        'ui-monospace',
+        'SFMono-Regular',
+        'Menlo',
+        'Monaco',
+        'Consolas',
+        '"Liberation Mono"',
+        '"Courier New"',
+        'monospace',
+      ],
+    },
+    fontSize: {
+      xs: ['0.75rem', { lineHeight: '1rem' }],
+      sm: ['0.875rem', { lineHeight: '1.25rem' }],
+      base: ['1rem', { lineHeight: '1.5rem' }],
+      lg: ['1.125rem', { lineHeight: '1.75rem' }],
+      xl: ['1.25rem', { lineHeight: '1.75rem' }],
+      '2xl': ['1.5rem', { lineHeight: '2rem' }],
+      '3xl': ['1.875rem', { lineHeight: '2.25rem' }],
+      '4xl': ['2.25rem', { lineHeight: '2.5rem' }],
+      '5xl': ['3rem', { lineHeight: '1' }],
+      '6xl': ['3.75rem', { lineHeight: '1' }],
+      '7xl': ['4.5rem', { lineHeight: '1' }],
+      '8xl': ['6rem', { lineHeight: '1' }],
+      '9xl': ['8rem', { lineHeight: '1' }],
+    },
+    fontWeight: {
+      thin: '100',
+      extralight: '200',
+      light: '300',
+      normal: '400',
+      medium: '500',
+      semibold: '600',
+      bold: '700',
+      extrabold: '800',
+      black: '900',
+    },
+    gap: ({ theme }) => theme('spacing'),
+    gradientColorStops: ({ theme }) => theme('colors'),
+    gridAutoColumns: {
+      auto: 'auto',
+      min: 'min-content',
+      max: 'max-content',
+      fr: 'minmax(0, 1fr)',
+    },
+    gridAutoRows: {
+      auto: 'auto',
+      min: 'min-content',
+      max: 'max-content',
+      fr: 'minmax(0, 1fr)',
+    },
+    gridColumn: {
+      auto: 'auto',
+      'span-1': 'span 1 / span 1',
+      'span-2': 'span 2 / span 2',
+      'span-3': 'span 3 / span 3',
+      'span-4': 'span 4 / span 4',
+      'span-5': 'span 5 / span 5',
+      'span-6': 'span 6 / span 6',
+      'span-7': 'span 7 / span 7',
+      'span-8': 'span 8 / span 8',
+      'span-9': 'span 9 / span 9',
+      'span-10': 'span 10 / span 10',
+      'span-11': 'span 11 / span 11',
+      'span-12': 'span 12 / span 12',
+      'span-full': '1 / -1',
+    },
+    gridColumnEnd: {
+      auto: 'auto',
+      1: '1',
+      2: '2',
+      3: '3',
+      4: '4',
+      5: '5',
+      6: '6',
+      7: '7',
+      8: '8',
+      9: '9',
+      10: '10',
+      11: '11',
+      12: '12',
+      13: '13',
+    },
+    gridColumnStart: {
+      auto: 'auto',
+      1: '1',
+      2: '2',
+      3: '3',
+      4: '4',
+      5: '5',
+      6: '6',
+      7: '7',
+      8: '8',
+      9: '9',
+      10: '10',
+      11: '11',
+      12: '12',
+      13: '13',
+    },
+    gridRow: {
+      auto: 'auto',
+      'span-1': 'span 1 / span 1',
+      'span-2': 'span 2 / span 2',
+      'span-3': 'span 3 / span 3',
+      'span-4': 'span 4 / span 4',
+      'span-5': 'span 5 / span 5',
+      'span-6': 'span 6 / span 6',
+      'span-full': '1 / -1',
+    },
+    gridRowStart: {
+      auto: 'auto',
+      1: '1',
+      2: '2',
+      3: '3',
+      4: '4',
+      5: '5',
+      6: '6',
+      7: '7',
+    },
+    gridRowEnd: {
+      auto: 'auto',
+      1: '1',
+      2: '2',
+      3: '3',
+      4: '4',
+      5: '5',
+      6: '6',
+      7: '7',
+    },
+    gridTemplateColumns: {
+      none: 'none',
+      1: 'repeat(1, minmax(0, 1fr))',
+      2: 'repeat(2, minmax(0, 1fr))',
+      3: 'repeat(3, minmax(0, 1fr))',
+      4: 'repeat(4, minmax(0, 1fr))',
+      5: 'repeat(5, minmax(0, 1fr))',
+      6: 'repeat(6, minmax(0, 1fr))',
+      7: 'repeat(7, minmax(0, 1fr))',
+      8: 'repeat(8, minmax(0, 1fr))',
+      9: 'repeat(9, minmax(0, 1fr))',
+      10: 'repeat(10, minmax(0, 1fr))',
+      11: 'repeat(11, minmax(0, 1fr))',
+      12: 'repeat(12, minmax(0, 1fr))',
+    },
+    gridTemplateRows: {
+      none: 'none',
+      1: 'repeat(1, minmax(0, 1fr))',
+      2: 'repeat(2, minmax(0, 1fr))',
+      3: 'repeat(3, minmax(0, 1fr))',
+      4: 'repeat(4, minmax(0, 1fr))',
+      5: 'repeat(5, minmax(0, 1fr))',
+      6: 'repeat(6, minmax(0, 1fr))',
+    },
+    height: ({ theme }) => ({
+      auto: 'auto',
+      ...theme('spacing'),
+      '1/2': '50%',
+      '1/3': '33.333333%',
+      '2/3': '66.666667%',
+      '1/4': '25%',
+      '2/4': '50%',
+      '3/4': '75%',
+      '1/5': '20%',
+      '2/5': '40%',
+      '3/5': '60%',
+      '4/5': '80%',
+      '1/6': '16.666667%',
+      '2/6': '33.333333%',
+      '3/6': '50%',
+      '4/6': '66.666667%',
+      '5/6': '83.333333%',
+      full: '100%',
+      screen: '100vh',
+      min: 'min-content',
+      max: 'max-content',
+      fit: 'fit-content',
+    }),
+    inset: ({ theme }) => ({
+      auto: 'auto',
+      ...theme('spacing'),
+      '1/2': '50%',
+      '1/3': '33.333333%',
+      '2/3': '66.666667%',
+      '1/4': '25%',
+      '2/4': '50%',
+      '3/4': '75%',
+      full: '100%',
+    }),
+    keyframes: {
+      spin: {
+        to: {
+          transform: 'rotate(360deg)',
+        },
+      },
+      ping: {
+        '75%, 100%': {
+          transform: 'scale(2)',
+          opacity: '0',
+        },
+      },
+      pulse: {
+        '50%': {
+          opacity: '.5',
+        },
+      },
+      bounce: {
+        '0%, 100%': {
+          transform: 'translateY(-25%)',
+          animationTimingFunction: 'cubic-bezier(0.8,0,1,1)',
+        },
+        '50%': {
+          transform: 'none',
+          animationTimingFunction: 'cubic-bezier(0,0,0.2,1)',
+        },
+      },
+    },
+    letterSpacing: {
+      tighter: '-0.05em',
+      tight: '-0.025em',
+      normal: '0em',
+      wide: '0.025em',
+      wider: '0.05em',
+      widest: '0.1em',
+    },
+    lineHeight: {
+      none: '1',
+      tight: '1.25',
+      snug: '1.375',
+      normal: '1.5',
+      relaxed: '1.625',
+      loose: '2',
+      3: '.75rem',
+      4: '1rem',
+      5: '1.25rem',
+      6: '1.5rem',
+      7: '1.75rem',
+      8: '2rem',
+      9: '2.25rem',
+      10: '2.5rem',
+    },
+    listStyleType: {
+      none: 'none',
+      disc: 'disc',
+      decimal: 'decimal',
+    },
+    margin: ({ theme }) => ({
+      auto: 'auto',
+      ...theme('spacing'),
+    }),
+    maxHeight: ({ theme }) => ({
+      ...theme('spacing'),
+      full: '100%',
+      screen: '100vh',
+      min: 'min-content',
+      max: 'max-content',
+      fit: 'fit-content',
+    }),
+    maxWidth: ({ theme, breakpoints }) => ({
+      none: 'none',
+      0: '0rem',
+      xs: '20rem',
+      sm: '24rem',
+      md: '28rem',
+      lg: '32rem',
+      xl: '36rem',
+      '2xl': '42rem',
+      '3xl': '48rem',
+      '4xl': '56rem',
+      '5xl': '64rem',
+      '6xl': '72rem',
+      '7xl': '80rem',
+      full: '100%',
+      min: 'min-content',
+      max: 'max-content',
+      fit: 'fit-content',
+      prose: '65ch',
+      ...breakpoints(theme('screens')),
+    }),
+    minHeight: {
+      0: '0px',
+      full: '100%',
+      screen: '100vh',
+      min: 'min-content',
+      max: 'max-content',
+      fit: 'fit-content',
+    },
+    minWidth: {
+      0: '0px',
+      full: '100%',
+      min: 'min-content',
+      max: 'max-content',
+      fit: 'fit-content',
+    },
+    objectPosition: {
+      bottom: 'bottom',
+      center: 'center',
+      left: 'left',
+      'left-bottom': 'left bottom',
+      'left-top': 'left top',
+      right: 'right',
+      'right-bottom': 'right bottom',
+      'right-top': 'right top',
+      top: 'top',
+    },
+    opacity: {
+      0: '0',
+      5: '0.05',
+      10: '0.1',
+      20: '0.2',
+      25: '0.25',
+      30: '0.3',
+      40: '0.4',
+      50: '0.5',
+      60: '0.6',
+      70: '0.7',
+      75: '0.75',
+      80: '0.8',
+      90: '0.9',
+      95: '0.95',
+      100: '1',
+    },
+    order: {
+      first: '-9999',
+      last: '9999',
+      none: '0',
+      1: '1',
+      2: '2',
+      3: '3',
+      4: '4',
+      5: '5',
+      6: '6',
+      7: '7',
+      8: '8',
+      9: '9',
+      10: '10',
+      11: '11',
+      12: '12',
+    },
+    padding: ({ theme }) => theme('spacing'),
+    placeholderColor: ({ theme }) => theme('colors'),
+    placeholderOpacity: ({ theme }) => theme('opacity'),
+    outlineColor: ({ theme }) => theme('colors'),
+    outlineOffset: {
+      0: '0px',
+      1: '1px',
+      2: '2px',
+      4: '4px',
+      8: '8px',
+    },
+    outlineWidth: {
+      0: '0px',
+      1: '1px',
+      2: '2px',
+      4: '4px',
+      8: '8px',
+    },
+    ringColor: ({ theme }) => ({
+      DEFAULT: theme(`colors.blue.500`, '#3b82f6'),
+      ...theme('colors'),
+    }),
+    ringOffsetColor: ({ theme }) => theme('colors'),
+    ringOffsetWidth: {
+      0: '0px',
+      1: '1px',
+      2: '2px',
+      4: '4px',
+      8: '8px',
+    },
+    ringOpacity: ({ theme }) => ({
+      DEFAULT: '0.5',
+      ...theme('opacity'),
+    }),
+    ringWidth: {
+      DEFAULT: '3px',
+      0: '0px',
+      1: '1px',
+      2: '2px',
+      4: '4px',
+      8: '8px',
+    },
+    rotate: {
+      0: '0deg',
+      1: '1deg',
+      2: '2deg',
+      3: '3deg',
+      6: '6deg',
+      12: '12deg',
+      45: '45deg',
+      90: '90deg',
+      180: '180deg',
+    },
+    saturate: {
+      0: '0',
+      50: '.5',
+      100: '1',
+      150: '1.5',
+      200: '2',
+    },
+    scale: {
+      0: '0',
+      50: '.5',
+      75: '.75',
+      90: '.9',
+      95: '.95',
+      100: '1',
+      105: '1.05',
+      110: '1.1',
+      125: '1.25',
+      150: '1.5',
+    },
+    scrollMargin: ({ theme }) => ({
+      ...theme('spacing'),
+    }),
+    scrollPadding: ({ theme }) => theme('spacing'),
+    sepia: {
+      0: '0',
+      DEFAULT: '100%',
+    },
+    skew: {
+      0: '0deg',
+      1: '1deg',
+      2: '2deg',
+      3: '3deg',
+      6: '6deg',
+      12: '12deg',
+    },
+    space: ({ theme }) => ({
+      ...theme('spacing'),
+    }),
+    stroke: ({ theme }) => theme('colors'),
+    strokeWidth: {
+      0: '0',
+      1: '1',
+      2: '2',
+    },
+    textColor: ({ theme }) => theme('colors'),
+    textDecorationColor: ({ theme }) => theme('colors'),
+    textDecorationThickness: {
+      auto: 'auto',
+      'from-font': 'from-font',
+      0: '0px',
+      1: '1px',
+      2: '2px',
+      4: '4px',
+      8: '8px',
+    },
+    textUnderlineOffset: {
+      auto: 'auto',
+      0: '0px',
+      1: '1px',
+      2: '2px',
+      4: '4px',
+      8: '8px',
+    },
+    textIndent: ({ theme }) => ({
+      ...theme('spacing'),
+    }),
+    textOpacity: ({ theme }) => theme('opacity'),
+    transformOrigin: {
+      center: 'center',
+      top: 'top',
+      'top-right': 'top right',
+      right: 'right',
+      'bottom-right': 'bottom right',
+      bottom: 'bottom',
+      'bottom-left': 'bottom left',
+      left: 'left',
+      'top-left': 'top left',
+    },
+    transitionDelay: {
+      75: '75ms',
+      100: '100ms',
+      150: '150ms',
+      200: '200ms',
+      300: '300ms',
+      500: '500ms',
+      700: '700ms',
+      1000: '1000ms',
+    },
+    transitionDuration: {
+      DEFAULT: '150ms',
+      75: '75ms',
+      100: '100ms',
+      150: '150ms',
+      200: '200ms',
+      300: '300ms',
+      500: '500ms',
+      700: '700ms',
+      1000: '1000ms',
+    },
+    transitionProperty: {
+      none: 'none',
+      all: 'all',
+      DEFAULT:
+        'color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter',
+      colors: 'color, background-color, border-color, text-decoration-color, fill, stroke',
+      opacity: 'opacity',
+      shadow: 'box-shadow',
+      transform: 'transform',
+    },
+    transitionTimingFunction: {
+      DEFAULT: 'cubic-bezier(0.4, 0, 0.2, 1)',
+      linear: 'linear',
+      in: 'cubic-bezier(0.4, 0, 1, 1)',
+      out: 'cubic-bezier(0, 0, 0.2, 1)',
+      'in-out': 'cubic-bezier(0.4, 0, 0.2, 1)',
+    },
+    translate: ({ theme }) => ({
+      ...theme('spacing'),
+      '1/2': '50%',
+      '1/3': '33.333333%',
+      '2/3': '66.666667%',
+      '1/4': '25%',
+      '2/4': '50%',
+      '3/4': '75%',
+      full: '100%',
+    }),
+    width: ({ theme }) => ({
+      auto: 'auto',
+      ...theme('spacing'),
+      '1/2': '50%',
+      '1/3': '33.333333%',
+      '2/3': '66.666667%',
+      '1/4': '25%',
+      '2/4': '50%',
+      '3/4': '75%',
+      '1/5': '20%',
+      '2/5': '40%',
+      '3/5': '60%',
+      '4/5': '80%',
+      '1/6': '16.666667%',
+      '2/6': '33.333333%',
+      '3/6': '50%',
+      '4/6': '66.666667%',
+      '5/6': '83.333333%',
+      '1/12': '8.333333%',
+      '2/12': '16.666667%',
+      '3/12': '25%',
+      '4/12': '33.333333%',
+      '5/12': '41.666667%',
+      '6/12': '50%',
+      '7/12': '58.333333%',
+      '8/12': '66.666667%',
+      '9/12': '75%',
+      '10/12': '83.333333%',
+      '11/12': '91.666667%',
+      full: '100%',
+      screen: '100vw',
+      min: 'min-content',
+      max: 'max-content',
+      fit: 'fit-content',
+    }),
+    willChange: {
+      auto: 'auto',
+      scroll: 'scroll-position',
+      contents: 'contents',
+      transform: 'transform',
+    },
+    zIndex: {
+      auto: 'auto',
+      0: '0',
+      10: '10',
+      20: '20',
+      30: '30',
+      40: '40',
+      50: '50',
+    },
   },
-
+  variantOrder: [
+    'first',
+    'last',
+    'odd',
+    'even',
+    'visited',
+    'checked',
+    'empty',
+    'read-only',
+    'group-hover',
+    'group-focus',
+    'focus-within',
+    'hover',
+    'focus',
+    'focus-visible',
+    'active',
+    'disabled',
+  ],
+  plugins: [],
 }
