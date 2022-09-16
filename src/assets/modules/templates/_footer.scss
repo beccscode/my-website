@@ -1,0 +1,19 @@
+footer {
+  @apply py-5 px-2;
+  @apply text-white text-sm;
+  @apply pb-60;
+}
+
+.footer {
+
+  &-inline {
+    @apply inline-block;
+    @apply ml-2;
+  }
+
+  &-icon {
+    stroke: white;
+    fill: white;
+    width: 20px;
+  }
+}

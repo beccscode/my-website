@@ -1,0 +1,9 @@
+.paragraph {
+  @apply mt-3;
+  @apply px-1;
+
+  &-lore {
+    @apply leading-4;
+    @apply text-justify;
+  }
+}

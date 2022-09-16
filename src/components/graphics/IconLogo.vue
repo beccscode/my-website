@@ -1,10 +1,10 @@
 <template>
 <svg
-   viewBox="0 0 196.25101 244.68399"
-   version="1.1"
-   id="svg5"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:svg="http://www.w3.org/2000/svg">
+    viewBox="0 0 196.25101 244.68399"
+    version="1.1"
+    id="svg5"
+    xmlns="http://www.w3.org/2000/svg"
+>
   <defs
      id="defs2" />
   <g

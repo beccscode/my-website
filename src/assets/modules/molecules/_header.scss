@@ -1,0 +1,13 @@
+.header {
+  @apply font-bold;
+  @apply capitalize;
+  @apply inline-block;
+  @apply text-blue-300 border-blue-300;
+
+  &-regular {
+    @apply text-2xl;
+    @apply pb-1 border-b-2;
+  }
+
+  &-small {}
+}

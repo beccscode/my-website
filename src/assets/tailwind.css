@@ -1,0 +1,9 @@
+@import '@/assets/modules/atoms/_paragraph.scss';
+@import '@/assets/modules/atoms/_page.scss';
+@import '@/assets/modules/molecules/_header.scss';
+@import '@/assets/modules/templates/_footer.scss';
+@import '@/assets/modules/templates/_navigation.scss';
+
+@tailwind preflight;
+@tailwind components;
+@tailwind utilities;

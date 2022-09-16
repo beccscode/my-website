@@ -18,22 +18,3 @@
     }
 </script>
 
-<style lang="scss">
-footer {
-    display: flex;
-    flex-direction: column;
-
-    div {
-  width: 100%;
-  height: 400px;
-  background-image: url("../assets/MoonFooter.jpg");
-  background-size: cover;
-}
-
-p {
-    color: white;
-    text-align: center;
-}
-
-}
-</style>

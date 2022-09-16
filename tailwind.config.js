@@ -845,8 +845,8 @@ module.exports = {
   | Modules                  https://tailwindcss.com/docs/configuration#modules
   |-----------------------------------------------------------------------------
   |
-  | Here is where you control which modules are generated and what variants are
-  | generated for each of those modules.
+  | Here is where you control which atoms are generated and what variants are
+  | generated for each of those atoms.
   |
   | Currently supported variants:
   |   - responsive
